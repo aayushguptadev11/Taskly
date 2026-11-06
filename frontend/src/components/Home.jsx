@@ -10,9 +10,9 @@ const Home = () => {
 
   useEffect(() => {
     async function fetchUser() {
-      const result = await api.get()
+      const result = await api.get("/user")
       console.log(result);
-      setusers(result.data)
+      setusers(result.data.data)
     }
     fetchUser();
   }, []);
@@ -40,7 +40,7 @@ const Home = () => {
                 <td className="border p-3 text-center">{user.id}</td>
                 <td className="border p-3">{user.name}</td>
                 <td className="border p-3">{user.email}</td>
-                <td className="border p-3">{user.desc}</td>
+                <td className="border p-3">{user.description}</td>
               </tr>
             ))}
           </tbody>
